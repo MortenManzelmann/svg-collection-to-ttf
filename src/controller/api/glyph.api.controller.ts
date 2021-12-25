@@ -17,6 +17,7 @@ class GlyphApiController implements Controller {
   }
 
   private get = (request: Request, response: Response): void => {
+    execSync('sh execute.sh');
     response.download(`${process.cwd()}/example.ttf`);
   }
 
