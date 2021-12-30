@@ -1,6 +1,6 @@
 { "props":
   { "ascent": 800
-    , "descent": 200
+    , "descent": 100
     , "em": 1000
     , "family": "Example"
   }
