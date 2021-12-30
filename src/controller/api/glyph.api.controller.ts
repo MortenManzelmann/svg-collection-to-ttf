@@ -17,7 +17,8 @@ class GlyphApiController implements Controller {
   }
 
   private get = (request: Request, response: Response): void => {
-    execSync('sh execute.sh');
+    execSync('python svgs2ttf.py metadata.json');
+       // response.download(`${process.cwd()}/example_reworked.ttf`);
     response.download(`${process.cwd()}/example.ttf`);
   }
 
@@ -29,7 +30,7 @@ class GlyphApiController implements Controller {
         return
       }
       //file written successfully
-      execSync('sh execute.sh');
+      execSync('python svgs2ttf.py metadata.json');
       response.download(`${process.cwd()}/example.ttf`);
     });
   };  
