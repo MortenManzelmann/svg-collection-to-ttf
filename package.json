@@ -13,7 +13,10 @@
     "typescript": "^4.3.4"
   },
   "scripts": {
-    "dev": "ts-node ./src/server.ts"
+    "dev": "ts-node ./src/server.ts",
+    "build": "./node_modules/typescript/bin/tsc",                                                                                                               
+    "start": "node ./dist/server.js",
+    "build:start": "yarn run build && yarn run start" 
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",

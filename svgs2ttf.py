@@ -15,10 +15,9 @@ def loadConfig(filename='font.json'):
         return json.load(f)
 
 def setProperties(font, config):
-    props = config['props']
-    lang = props.pop('lang', 'English (US)')
-    family = props.pop('family', None)
-    style = props.pop('style', 'Regular')
+    lang =  'English (US)'
+    family = 'Example' 
+    style = 'Regular'
     props['encoding'] = props.get('encoding', 'UnicodeFull')
     if family is not None:
         font.familyname = family
@@ -60,7 +59,7 @@ def main(config_file):
     os.chdir(os.path.dirname(config_file) or '.')
     font = fontforge.font()
 
-    setProperties(font, config)
+    # setProperties(font, config)
     addGlyphs(font, config)
     for outfile in config['output']:
         sys.stderr.write('Generating %s...\n' % outfile)

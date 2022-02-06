@@ -1,4 +1,4 @@
-import {execSync} from 'child_process';
+import {exec} from 'child_process';
 import { Request, Response, Router } from "express";
 import { Controller } from "../../interfaces/controller.interface";
 
@@ -11,7 +11,7 @@ class FontApiController implements Controller {
   }
 
   initializeRoutes(): void {
-    this.router.post(this.PATH, this.create);
+    this.router.put(this.PATH, this.create);
     this.router.get(this.PATH, this.get)
   }
 
@@ -20,8 +20,8 @@ class FontApiController implements Controller {
   }
 
   private create = (_request: Request, response: Response): void => {
-      execSync('python svgs2ttf.py metadata.json');
-      response.download(`${process.cwd()}/example.ttf`);
+      exec('/usr/bin/python svgs2ttf.py metadata.json');
+      response.sendStatus(200);
   };  
 } 
 
